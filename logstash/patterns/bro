@@ -1,7 +1,7 @@
 BRO_TS \d+\.\d{6}
 BRO_UID \S+
-BRO_IP (?:%{IPV6}|%{IPV4})
-BRO_PORT \d+
+BRO_IP (?:%{IPV6}|%{IPV4})|\-
+BRO_PORT \d+|\-
 BRO_BOOL (F|T)
 BRO_INT %{INT}
 BRO_COUNT %{INT}|\-
@@ -36,5 +36,6 @@ BRO_X509 %{BRO_TS:ts}\s+%{BRO_WORD:id}\s+%{BRO_COUNT:certificate_version}\s+%{BR
 
 BRO_DHCP %{BRO_TS:ts}\s+%{BRO_WORD:uid}\s+%{BRO_IP:id_orig_h}\s+%{BRO_PORT:id_orig_p}\s+%{BRO_IP:id_resp_h}\s+%{BRO_PORT:id_resp_p}\s+%{BRO_WORD:mac}\s+%{BRO_IP:assigned_ip}\s+%{BRO_NUMBER:lease_time}\s+%{BRO_NUMBER:trans_id}
 
-
 BRO_HTTP %{BRO_TS:ts}\s+%{BRO_WORD:uid}\s+%{BRO_IP:id_orig_h}\s+%{BRO_PORT:id_orig_p}\s+%{BRO_IP:id_resp_h}\s+%{BRO_PORT:id_resp_p}\s+%{BRO_COUNT:trans_depth}\s+%{BRO_WORD:method}\s+%{BRO_WORD:host}\s+%{BRO_WORD:uri}\s+%{BRO_WORD:referrer}\s+%{BRO_WORD:version}\s+%{BRO_WORDLIST_WITH_COMMA_SPACE:user_agent}\s+%{BRO_COUNT:request_body_len}\s+%{BRO_COUNT:response_body_len}\s+%{BRO_COUNT:status_code}\s+%{BRO_WORD:status_msg}\s+%{BRO_COUNT:info_code}\s+%{BRO_WORD:info_msg}\s+%{BRO_WORDLIST_WITH_COMMA:tags}\s+%{BRO_WORD:username}\s+%{BRO_WORD:password}\s+%{BRO_WORDLIST_WITH_COMMA:proxied}\s+%{BRO_WORDLIST_WITH_COMMA:orig_fuids}\s+%{BRO_WORDLIST_WITH_COMMA:orig_filenames}\s+%{BRO_WORDLIST_WITH_COMMA:orig_mime_types}\s+%{BRO_WORDLIST_WITH_COMMA:resp_fuids}\s+%{BRO_WORDLIST_WITH_COMMA:resp_filenames}\s+%{BRO_WORDLIST_WITH_COMMA:resp_mime_types}
+
+BRO_WEIRD %{BRO_TS:ts}\s+%{BRO_WORD:uid}\s+%{BRO_IP:id_orig_h}\s+%{BRO_PORT:id_orig_p}\s+%{BRO_IP:id_resp_h}\s+%{BRO_PORT:id_resp_p}\s+%{BRO_WORD:name}\s+%{BRO_WORD:addl}\s+%{BRO_BOOL:notice}\s+%{BRO_WORD:peer}

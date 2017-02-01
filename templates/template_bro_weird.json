@@ -1,0 +1,27 @@
+{
+  "template" : "ttbro-weird-*",
+  "settings" : {
+     "number_of_replicas": 0,
+     "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "stdin-type" : {
+       "_all" : {"enabled" : false},
+       "properties" : {
+
+                     "@timestamp" :        { "type" : "date", "format" : "dateOptionalTime" },
+                      "ts" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "uid" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_h" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_p" :        { "type" : "integer",  "index" : "not_analyzed" },
+                      "id_resp_h" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "id_resp_p" :        { "type" : "integer",  "index" : "not_analyzed" },
+                      "name" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "addl" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "notice" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "peer" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "provider" :         { "type" : "string",  "index" : "not_analyzed" }
+       }
+    }
+  }
+}

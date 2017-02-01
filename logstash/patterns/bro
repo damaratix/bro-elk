@@ -1,0 +1,40 @@
+BRO_TS \d+\.\d{6}
+BRO_UID \S+
+BRO_IP (?:%{IPV6}|%{IPV4})
+BRO_PORT \d+
+BRO_BOOL (F|T)
+BRO_INT %{INT}
+BRO_COUNT %{INT}|\-
+BRO_NUMBER %{NUMBER}|\-
+
+BRO_IP_WITH_COMMA (%{BRO_IP}+,?)+,?|\-
+BRO_INT_WITH_COMMA (?:[+-]?(?:[0-9]+)+(!,)?).*
+BRO_NUMBER_WITH_COMMA (%{NUMBER}+,?).*|\-
+BRO_WORDLIST_WITH_COMMA (%{BRO_WORD}+,?)+,?|\-
+BRO_WORDLIST_WITH_COMMA_SPACE (%{BRO_WORD_SPACE}+,?)+,?|\-
+
+BRO_WORD_BASE [a-zA-Z0-9\-]+
+BRO_WORD_OTHER [\*\-\:\/\=\(\)\.\;\_\@\+]+
+BRO_WORD ([%{BRO_WORD_BASE}%{BRO_WORD_OTHER}]+)|\-
+BRO_WORD_SPACE ([%{BRO_WORD_BASE} %{BRO_WORD_OTHER}]+)
+BRO_DATA %{DATA}
+BRO_NOTSPACE %{NOTSPACE}|\-
+
+
+BRO_CONN %{BRO_TS:ts}\t+%{BRO_WORD:uid}\t+%{BRO_IP:id_orig_h}\t+%{BRO_PORT:id_orig_p}\t+%{BRO_IP:id_resp_h}\t+%{BRO_PORT:id_resp_p}\t+%{BRO_WORD:proto}\t+%{BRO_WORD:service}\t+%{BRO_NUMBER:duration}\t+%{BRO_COUNT:orig_bytes}\t+%{BRO_COUNT:resp_bytes}\t+%{BRO_WORD:conn_state}\t+%{BRO_BOOL:local_orig}\t+%{BRO_BOOL:local_resp}\t+%{BRO_COUNT:missed_bytes}\t+%{BRO_WORD:history}\t+%{BRO_COUNT:orig_pkts}\t+%{BRO_COUNT:orig_ip_bytes}\t+%{BRO_COUNT:resp_pkts}\t+%{BRO_COUNT:resp_ip_bytes}\t+%{BRO_WORDLIST_WITH_COMMA:tunnel_parents}
+
+BRO_DNS %{BRO_TS:ts}\t+%{BRO_WORD:uid}\t+%{BRO_IP:id_orig_h}\t+%{BRO_PORT:id_orig_p}\t+%{BRO_IP:id_resp_h}\t+%{BRO_PORT:id_resp_p}\t+%{BRO_WORD:proto}\t+%{BRO_INT:trans_id}\t+%{BRO_NUMBER:rtt}\t+%{BRO_WORD:query}\t+%{BRO_INT:qclass}\t+%{BRO_NOTSPACE:qclass_name}\t+%{BRO_INT:qtype}\t+%{BRO_NOTSPACE:qtype_name}\t+%{BRO_INT:rcode}\t+%{BRO_WORD:rcode_name}\t+%{BRO_BOOL:AA}\t+%{BRO_BOOL:TC}\t+%{BRO_BOOL:RD}\t+%{BRO_BOOL:RA}\t+%{BRO_INT:Z}\t+%{BRO_DATA:answers}\t+%{BRO_NUMBER_WITH_COMMA:TTLs}\t+%{BRO_BOOL:rejected}
+
+BRO_FILES %{BRO_TS:ts}\t+%{BRO_WORD:fuid}\t+%{BRO_IP_WITH_COMMA:tx_hosts}\t+%{BRO_IP_WITH_COMMA:rx_hosts}\t+%{BRO_WORDLIST_WITH_COMMA:conn_uids}\t+%{BRO_WORD:source}\t+%{BRO_COUNT:depth}\t+%{BRO_WORDLIST_WITH_COMMA:analyzers}\t+%{BRO_WORD:mime_type}\t+%{BRO_WORD:filename}\t+%{BRO_NUMBER:duration}\t+%{BRO_BOOL:local_orig}\t+%{BRO_BOOL:is_orig}\t+%{BRO_COUNT:seen_bytes}\t+%{BRO_COUNT:total_bytes}\t+%{BRO_COUNT:missing_bytes}\t+%{BRO_COUNT:overflow_bytes}\t+%{BRO_BOOL:timedout}\t+%{BRO_WORD:parent_fuid}\t+%{BRO_WORD:md5}\t+%{BRO_WORD:sha1}\t+%{BRO_WORD:sha256}\t+%{BRO_WORD:extracted}
+
+BRO_SSH %{BRO_TS:ts}\t+%{BRO_WORD:uid}\t+%{BRO_IP:id_orig_h}\t+%{BRO_PORT:id_orig_p}\t+%{BRO_IP:id_resp_h}\t+%{BRO_PORT:id_resp_p}\t+%{BRO_COUNT:version}\t+%{BRO_BOOL:auth_success}\t+%{BRO_COUNT:auth_attempts}\t+%{BRO_WORD:direction}\t+%{BRO_WORD:client}\t+%{BRO_WORD_SPACE:server}\t+%{BRO_WORD:cipher_alg}\t+%{BRO_WORD:mac_alg}\t+%{BRO_WORD:compression_alg}\t+%{BRO_WORD:kex_alg}\t
++%{BRO_WORD:host_key_alg}\t+%{BRO_WORD:host_key}\t+%{BRO_WORD:remote_location_country_code}\t+%{BRO_WORD:remote_location_region}\t+%{BRO_WORD:remote_location_city}\t+%{BRO_NUMBER:remote_location_latitude}\t+%{BRO_NUMBER:remote_location_longitude}
+
+BRO_SSL %{BRO_TS:ts}\s+%{BRO_WORD:uid}\s+%{BRO_IP:id_orig_h}\s+%{BRO_PORT:id_orig_p}\s+%{BRO_IP:id_resp_h}\s+%{BRO_PORT:id_resp_p}\s+%{BRO_WORD:version}\s+%{BRO_WORD:cipher}\s+%{BRO_WORD:curve}\s+%{BRO_WORD:server_name}\s+%{BRO_BOOL:resumed}\s+%{BRO_WORD:last_alert}\s+%{BRO_WORD:next_protocol}\s+%{BRO_BOOL:established}\s+%{BRO_WORDLIST_WITH_COMMA:cert_chain_fuids}\s+%{BRO_WORDLIST_WITH_COMMA:client_cert_chain_fuids}\s+%{BRO_WORDLIST_WITH_COMMA_SPACE:subject}\s+%{BRO_WORDLIST_WITH_COMMA_SPACE:issuer}\s+%{BRO_WORD:client_subject}\s+%{BRO_WORD:client_issuer}\s+%{BRO_WORD:validation_status}
+
+BRO_X509 %{BRO_TS:ts}\s+%{BRO_WORD:id}\s+%{BRO_COUNT:certificate_version}\s+%{BRO_WORD:certificate_serial}\s+%{BRO_WORDLIST_WITH_COMMA_SPACE:certificate_subject}\s+%{BRO_WORDLIST_WITH_COMMA_SPACE:certificate_issuer}\s+%{BRO_TS:certificate_not_valid_before}\s+%{BRO_TS:certificate_not_valid_after}\s+%{BRO_WORD:certificate_key_alg}\s+%{BRO_WORD:certificate_sig_alg}\s+%{BRO_WORD:certificate_key_type}\s+%{BRO_COUNT:certificate_key_length}\s+%{BRO_WORD:certificate_exponent}\s+%{BRO_WORD:certificate_curve}\s+%{BRO_WORDLIST_WITH_COMMA:san_dns}\s+%{BRO_WORDLIST_WITH_COMMA:san_uri}\s+%{BRO_WORDLIST_WITH_COMMA:san_email}\s+%{BRO_IP_WITH_COMMA:san_ip}\s+%{BRO_BOOL:basic_constraints_ca}\s+%{BRO_COUNT:basic_constraints_path_len}
+
+BRO_DHCP %{BRO_TS:ts}\s+%{BRO_WORD:uid}\s+%{BRO_IP:id_orig_h}\s+%{BRO_PORT:id_orig_p}\s+%{BRO_IP:id_resp_h}\s+%{BRO_PORT:id_resp_p}\s+%{BRO_WORD:mac}\s+%{BRO_IP:assigned_ip}\s+%{BRO_NUMBER:lease_time}\s+%{BRO_NUMBER:trans_id}
+
+
+BRO_HTTP %{BRO_TS:ts}\s+%{BRO_WORD:uid}\s+%{BRO_IP:id_orig_h}\s+%{BRO_PORT:id_orig_p}\s+%{BRO_IP:id_resp_h}\s+%{BRO_PORT:id_resp_p}\s+%{BRO_COUNT:trans_depth}\s+%{BRO_WORD:method}\s+%{BRO_WORD:host}\s+%{BRO_WORD:uri}\s+%{BRO_WORD:referrer}\s+%{BRO_WORD:version}\s+%{BRO_WORDLIST_WITH_COMMA_SPACE:user_agent}\s+%{BRO_COUNT:request_body_len}\s+%{BRO_COUNT:response_body_len}\s+%{BRO_COUNT:status_code}\s+%{BRO_WORD:status_msg}\s+%{BRO_COUNT:info_code}\s+%{BRO_WORD:info_msg}\s+%{BRO_WORDLIST_WITH_COMMA:tags}\s+%{BRO_WORD:username}\s+%{BRO_WORD:password}\s+%{BRO_WORDLIST_WITH_COMMA:proxied}\s+%{BRO_WORDLIST_WITH_COMMA:orig_fuids}\s+%{BRO_WORDLIST_WITH_COMMA:orig_filenames}\s+%{BRO_WORDLIST_WITH_COMMA:orig_mime_types}\s+%{BRO_WORDLIST_WITH_COMMA:resp_fuids}\s+%{BRO_WORDLIST_WITH_COMMA:resp_filenames}\s+%{BRO_WORDLIST_WITH_COMMA:resp_mime_types}

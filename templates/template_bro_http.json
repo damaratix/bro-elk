@@ -1,0 +1,38 @@
+{
+  "template" : "ttbro-http-*",
+  "settings" : {
+     "number_of_replicas": 0,
+     "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "stdin-type" : {
+       "_all" : {"enabled" : false},
+       "properties" : {
+                     "@timestamp" :             { "type" : "date", "format" : "dateOptionalTime" },
+                      "uid" :                   { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_h" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_p" :             { "type" : "integer" },
+                      "id_resp_h" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "id_resp_p" :             { "type" : "integer" },
+                      "version" :               { "type" : "string", "index" : "not_analyzed" },
+                      "trans_depth" :           { "type" : "integer", "index" : "not_analyzed" },
+                      "method" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "uri" :                   { "type" : "string",  "index" : "not_analyzed" },
+                      "domain" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "referrer" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "user_agent" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "request_body_len":       { "type" : "long" },
+                      "response_body_len":      { "type" : "long" },
+                      "status_code" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "status_msg" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "filename" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "tags" :                  { "type" : "string",  "index" : "not_analyzed" },
+                      "username" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "password" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "proxied" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "orig_fuids" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "orig_mime_types" :       { "type" : "string",  "index" : "not_analyzed" }
+       }
+    }
+  }
+}

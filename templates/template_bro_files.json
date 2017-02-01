@@ -1,0 +1,47 @@
+{
+  "template" : "ttbro-files-*",
+  "settings" : {
+     "number_of_replicas": 0,
+     "index.refresh_interval" : "5s",
+     "analysis": {
+       "analyzer": {
+         "queryText": {
+           "type": "standard"
+         }
+       }
+     }
+  },
+  "mappings" : {
+    "stdin-type" : {
+       "_all" : {"enabled" : false},
+       "properties" : {
+
+                     "provider" :           { "type" : "string",  "index" : "not_analyzed" },
+                     "@timestamp" :         { "type" : "date", "format" : "dateOptionalTime" },
+                      "ts" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "fuid" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "tx_hosts" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "rx_hosts" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "conn_uids" :         { "type" : "string",  "index" : "not_analyzed" },
+                      "source" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "depth" :             { "type" : "integer",  "index" : "not_analyzed" },
+                      "analyzers" :         { "type" : "string",  "index" : "analyzed", "analyzer":"queryText" },
+                      "mime_type" :         { "type" : "string",  "index" : "not_analyzed" },
+                      "filename" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "duration" :          { "type" : "double" },
+                      "local_orig" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "is_orig" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "seen_bytes" :        { "type" : "long" },
+                      "total_bytes" :       { "type" : "long" },
+                      "missing_bytes" :     { "type" : "long" },
+                      "overflow_bytes" :    { "type" : "string",  "index" : "not_analyzed" },
+                      "timedout" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "parent_fuid" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "md5" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "sha1" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "sha256" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "extracted" :         { "type" : "string",  "index" : "not_analyzed" }
+       }
+    }
+  }
+}

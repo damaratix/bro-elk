@@ -1,0 +1,40 @@
+{
+  "template" : "ttbro-dns-*",
+  "settings" : {
+     "number_of_replicas": 0,
+     "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "stdin-type" : {
+       "_all" : {"enabled" : false},
+       "properties" : {
+                     "provider" :           { "type" : "string",  "index" : "not_analyzed" },
+                     "@timestamp" :         { "type" : "date", "format" : "dateOptionalTime"},
+                      "ts" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "uid" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_h" :         { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_p" :         { "type" : "integer",  "index" : "not_analyzed"},
+                      "id_resp_h" :         { "type" : "string",  "index" : "not_analyzed" },
+                      "id_resp_p" :         { "type" : "integer",  "index" : "not_analyzed"},
+                      "proto" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "trans_id" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "rtt" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "query" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "qclass" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "qclass_name" :       { "type" : "string",  "index" : "not_analyzed" },
+                      "qtype" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "qtype_name" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "rcode" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "rcode_name" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "AA" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "TC" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "RD" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "RA" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "Z" :                 { "type" : "string",  "index" : "not_analyzed" },
+                      "answers" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "TTLs" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "rejected" :          { "type" : "string",  "index" : "not_analyzed" }
+       }
+    }
+  }
+}

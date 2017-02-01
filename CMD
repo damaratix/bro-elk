@@ -1,0 +1,16 @@
+#view all indexes
+curl 'http://bluepill:9200/_cat/indices?v'
+
+#view  templates
+curl -XGET 'http://bluepill:9200/_all/_mapping/*'?pretty
+curl -XGET 'http://bluepill:9200/_mapping' | python -m json.tool
+curl -XGET 'http://bluepill:9200/_template/*'?pretty
+
+#delete template
+curl -XDELETE http://bluepill:9200/_template/nome-tmpl
+
+#delete index  
+curl -XDELETE 'http://bluepill:9200/mailqueue-logs-*
+
+# read. Useful for testing 
+curl -XGET 'http://bluepill:9200/mailqueue-logs-*

@@ -1,0 +1,36 @@
+{
+  "template" : "ttbro-x509-*",
+  "settings" : {
+     "number_of_replicas": 0,
+     "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "stdin-type" : {
+       "_all" : {"enabled" : false},
+       "properties" : {
+                     "provider" :                       { "type" : "string",  "index" : "not_analyzed" },
+                     "@timestamp" :                     { "type" : "date", "format" : "dateOptionalTime" },
+                      "ts" :                            { "type" : "string",  "index" : "not_analyzed" },
+                      "id" :                            { "type" : "string",  "index" : "not_analyzed" },
+                      "certificate_version" :           { "type" : "integer",  "index" : "not_analyzed" },
+                      "certificate_serial" :            { "type" : "string",  "index" : "analyzed" },
+                      "certificate_subject" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "certificate_issuer" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "certificate_not_valid_before" :  { "type" : "date",  "index" : "not_analyzed", "format": "epoch_second" },
+                      "certificate_not_valid_after" :   { "type" : "date",  "index" : "not_analyzed", "format": "epoch_second" },
+                      "certificate_key_alg" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "certificate_sig_alg" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "certificate_key_type" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "certificate_key_length" :        { "type" : "integer",  "index" : "not_analyzed" },
+                      "certificate_exponent" :          { "type" : "integer",  "index" : "not_analyzed" },
+                      "certificate_curve" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "san_dns" :                       { "type" : "string", "index" : "analyzed" },
+                      "san_uri" :                       { "type" : "string",  "index" : "not_analyzed" },
+                      "san_email" :                     { "type" : "string",  "index" : "not_analyzed" },
+                      "san_ip" :                        { "type" : "string",  "index" : "not_analyzed" },
+                      "basic_constraints_ca" :          { "type": "boolean",  "index" : "not_analyzed" },
+                      "basic_constraints_path_len" :    { "type" : "string",  "index" : "not_analyzed" }
+       }
+    }
+  }
+}

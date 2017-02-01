@@ -1,0 +1,38 @@
+{
+  "template" : "ttbro-ssl-*",
+  "settings" : {
+     "number_of_replicas": 0,
+     "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "stdin-type" : {
+       "_all" : {"enabled" : false},
+       "properties" : {
+
+                     "provider" :               { "type" : "string",  "index" : "not_analyzed" },
+                     "@timestamp" :             { "type" : "date", "format" : "dateOptionalTime" },
+                      "ts" :                   { "type" : "string",  "index" : "not_analyzed" },
+                      "uid" :                   { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_h" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_p" :             { "type" : "integer",  "index" : "not_analyzed" },
+                      "id_resp_h" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "id_resp_p" :             { "type" : "integer",  "index" : "not_analyzed" },
+                      "version" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "cipher" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "curve" :                 { "type" : "string",  "index" : "not_analyzed" },
+                      "server_name" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "resumed" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "last_alert" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "next_protocol" :         { "type" : "string",  "index" : "not_analyzed" },
+                      "established" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "cert_chain_fuids" :      { "type" : "string",  "index" : "not_analyzed" },
+                      "client_cert_chain_fuids" : { "type" : "string",  "index" : "not_analyzed" },
+                      "subject" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "issuer" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "client_subject" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "client_issuer" :         { "type" : "string",  "index" : "not_analyzed" },
+                      "validation_status" :     { "type" : "string",  "index" : "not_analyzed" }
+       }
+    }
+  }
+}

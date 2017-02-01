@@ -1,0 +1,40 @@
+{
+  "template" : "ttbro-ssh-*",
+  "settings" : {
+     "number_of_replicas": 0,
+     "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "stdin-type" : {
+       "_all" : {"enabled" : false},
+       "properties" : {
+
+                     "provider" :               { "type" : "string",  "index" : "not_analyzed" },
+                     "@timestamp" :             { "type" : "date", "format" : "dateOptionalTime" },
+                      "ts" :                    { "type" : "string",  "index" : "not_analyzed" },
+                      "uid" :                   { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_h" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "id_orig_p" :             { "type" : "integer" },
+                      "id_resp_h" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "id_resp_p" :             { "type" : "integer" },
+                      "version" :               { "type" : "integer",  "index" : "not_analyzed" },
+                      "auth_success" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "auth_attempt" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "direction" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "client" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "server" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "cypher_alg" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "mac_alg" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "compression_alg" :       { "type" : "string",  "index" : "not_analyzed" },
+                      "kex_alg" :               { "type" : "string",  "index" : "not_analyzed" },
+                      "host_key_alg" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "host_key" :              { "type" : "string",  "index" : "not_analyzed" },
+                      "remote_location_country_code" :  { "type" : "string",  "index" : "not_analyzed" },
+                      "remote_location_regiony" :       { "type" : "string",  "index" : "not_analyzed" },
+                      "remote_location_city" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "remote_location_latitude" :      { "type" : "string",  "index" : "not_analyzed" },
+                      "remote_location_longitude" :     { "type" : "string",  "index" : "not_analyzed" }
+       }
+    }
+  }
+}

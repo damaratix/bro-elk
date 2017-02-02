@@ -31,7 +31,7 @@
                       "orig_ip_bytes" :         { "type" : "string",  "index" : "not_analyzed" },
                       "resp_pkts" :             { "type" : "integer",  "index" : "not_analyzed" },
                       "resp_ip_bytes" :         { "type" : "integer",  "index" : "not_analyzed" },
-                      "tunnel_parents" :        { "type" : "integer",  "index" : "not_analyzed" }
+                      "tunnel_parents" :        { "type" : "string",  "index" : "not_analyzed" }
        }
     }
   }

@@ -14,7 +14,7 @@ BRO_WORDLIST_WITH_COMMA (%{BRO_WORD}+,?)+,?|\-
 BRO_WORDLIST_WITH_COMMA_SPACE (%{BRO_WORD_SPACE}+,?)+,?|\-
 
 BRO_WORD_BASE [a-zA-Z0-9\-]+
-BRO_WORD_OTHER [\*\-\:\/\=\(\)\.\;\_\@\+]+
+BRO_WORD_OTHER [\<\>\*\-\:\/\=\(\)\.\;\_\@\+\^]+
 BRO_WORD ([%{BRO_WORD_BASE}%{BRO_WORD_OTHER}]+)|\-
 BRO_WORD_SPACE ([%{BRO_WORD_BASE} %{BRO_WORD_OTHER}]+)
 BRO_DATA %{DATA}

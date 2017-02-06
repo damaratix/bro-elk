@@ -32,8 +32,9 @@ $ sudo python main.py < /opt/bro/logs/current/weird.log
 Output: THE GROK PATTERN of the weird.log file
 <br />
 <br />
-%{BRO_TS:ts}\s+%{BRO_WORD:uid}\s+%{BRO_IP:id_orig_h}\s+%{BRO_PORT:id_orig_p}\s+%{BRO_IP:id_resp_h}\s+%{BRO_PORT:id_resp_p}\s+%{BRO_WORD:name}\s+%{BRO_WORD:addl}\s+%{BRO_BOOL:notice}\s+%{BRO_WORD:peer}\s+
+%{BRO_TS:ts}\s+%{BRO_WORD:uid}\s+%{BRO_IP:id_orig_h}\s+%{BRO_PORT:id_orig_p}\s+%{BRO_IP:id_resp_h}\s+%{BRO_PORT:id_resp_p}\s+%{BRO_WORD:name}\s+%{BRO_WORD:addl}\s+%{BRO_BOOL:notice}\s+%{BRO_WORD:peer}
 <br />
+copy and paste in to logstash/pattern/bro (remind to add a clear prefix to use in logstash conf)
 <br />
 <br />
 Warning:

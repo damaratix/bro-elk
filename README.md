@@ -1,6 +1,7 @@
 # BRO Logs => Logstash =>  Elasticsearch
 =========================================
 
+
 Just an idea on how to insert [Bro Security Monitor](https://www.bro.org/ "The Bro Network Security Monitor") logs files into [Elastisearch](https://www.elastic.co/products/elasticsearch) using [Logstash](https://www.elastic.co/products/logstash)  having some maintainable configuration files (and do not get crazy with a bunch of (?<ts>(.*?))\t?<uid>(.*?))\t.... :) )
 
 
@@ -28,6 +29,7 @@ required  to logstash while parsing  a bro log file.
 
 
 Usage:
+-----
 ```
 $ cd brolog2grok
 $ sudo python main.py < /opt/bro/logs/current/weird.log

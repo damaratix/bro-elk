@@ -1,4 +1,4 @@
-# BRO Logs => Logstash =>  Elasticsearch
+BRO Logs => Logstash =>  Elasticsearch
 =========================================
 
 

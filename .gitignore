@@ -1,5 +1,5 @@
 *.pyc
 logstash/patterns/test-*
-logstash/patterns/extra-*
-logstash/conf/extra-*
-templates/extra-*
+logstash/patterns/extra*
+logstash/conf/extra*
+templates/extra*

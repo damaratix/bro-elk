@@ -1,0 +1,28 @@
+{
+  "template" : "pdns-*",
+  "settings" : {
+     "number_of_replicas": 0,
+     "index.refresh_interval" : "5s"
+  },
+  "mappings" : {
+    "stdin-type" : {
+       "_all" : {"enabled" : false},
+       "properties" : {
+                     "@timestamp" :         { "type" : "date", "format" : "dateOptionalTime" },
+                     "@version" :           { "type" : "string" },
+                      "ts" :                { "type" : "string",  "index" : "not_analyzed" },
+                      "dns_client" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "dns_server" :        { "type" : "string",  "index" : "not_analyzed" },
+                      "rr_class" :          { "type" : "string",  "index" : "not_analyzed" },
+                      "query" :             { "type" : "string",  "index" : "not_analyzed" },
+                      "type" :              { "type" : "string"  },
+                      "rr_type" :           { "type" : "string",  "index" : "not_analyzed" },
+                      "answer" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "origin" :            { "type" : "string",  "index" : "not_analyzed" },
+                      "ttl" :               { "type" : "integer" },
+                      "count" :             { "type" : "integer" }
+       }
+    }
+  }
+}
+

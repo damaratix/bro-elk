@@ -14,3 +14,6 @@ curl -XDELETE 'http://bluepill:9200/mailqueue-logs-*
 
 # read. Useful for testing 
 curl -XGET 'http://bluepill:9200/mailqueue-logs-*
+
+#debug logstash
+bin/logstash --verbose --debug   -f conf/json_test-conf  < ../dhcp.log
